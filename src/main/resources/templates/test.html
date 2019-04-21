@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:text="${test}"></span>
+<br>
+<span th:text="${p.username+' 12  '+p.birth.getTime()}"></span>
+<br>
+<span th:text="${#dates.format(p.birth,'yyyy-MM-dd')}"></span>
+<span th:text="${#strings.toLowerCase(p.username)}"></span>
+<span th:text="${#strings.toUpperCase(p.username)}"></span>
+<br>
+<span th:text="${#lists.size(list)}"></span>
+<br>
+<span th:text="${'dfsfsf'}"></span>
+<br>
+<span th:text="dfsfsf"></span>
+<br>
+<span th:text="23+1"></span>
+<br>
+<span th:if="${session.user.gender}==true">男</span>
+<span th:if="${session.user.gender}==true">女</span>
+<br>
+<span th:text="${session.user.gender}==true?'男':'女'"></span>
+<table>
+    <tr th:each="person:${list}">
+    <td th:text="${person.username}"></td>
+    <td th:text="${person.password}"></td>
+    </tr>
+</table>
+<!-- 跳转到页面或后台，传参 -->
+<a th:href="@{/test1(username='hahah',password=${session.user.username})}">点击跳转</a>
+
+</body>
+</html>

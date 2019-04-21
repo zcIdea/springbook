@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span th:text="${session.user.username}"></span>
+<br>
+<span th:text="${session.user.birth}"></span>
+<br>
+
+<div th:object="${session.user}">
+    <p><span th:text="*{username}"></span></p>
+    <p><span th:text="*{#dates.format(birth,'yyyy-MM-dd')}"></span></p>
+</div>
+
+
+
+</body>
+</html>
